@@ -61,7 +61,7 @@ class RouteRegistrar
 
         $this->app->group(['middleware' => ['auth']], function () {
             $this->app->get('/tokens', $this->prefix('AuthorizedAccessTokenController@forUser'));
-            $this->app->delete('/tokens/{token_id}', $this->prefix('AuthorizedAccessTokenController@destroy'));
+            $this->app->delete('/tokens/{tokenId}', $this->prefix('AuthorizedAccessTokenController@destroy'));
         });
     }
 
@@ -88,8 +88,8 @@ class RouteRegistrar
         $this->app->group(['middleware' => ['auth']], function () {
             $this->app->get('/clients', $this->prefix('ClientController@forUser'));
             $this->app->post('/clients', $this->prefix('ClientController@store'));
-            $this->app->put('/clients/{client_id}', $this->prefix('ClientController@update'));
-            $this->app->delete('/clients/{client_id}', $this->prefix('ClientController@destroy'));
+            $this->app->put('/clients/{clientId}', $this->prefix('ClientController@update'));
+            $this->app->delete('/clients/{clientId}', $this->prefix('ClientController@destroy'));
         });
     }
 
@@ -104,7 +104,7 @@ class RouteRegistrar
             $this->app->get('/scopes', $this->prefix('ScopeController@all'));
             $this->app->get('/personal-access-tokens', $this->prefix('PersonalAccessTokenController@forUser'));
             $this->app->post('/personal-access-tokens', $this->prefix('PersonalAccessTokenController@store'));
-            $this->app->delete('/personal-access-tokens/{token_id}', $this->prefix('PersonalAccessTokenController@destroy'));
+            $this->app->delete('/personal-access-tokens/{tokenId}', $this->prefix('PersonalAccessTokenController@destroy'));
         });
     }
 }
